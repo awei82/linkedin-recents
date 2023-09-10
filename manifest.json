@@ -1,22 +1,22 @@
 {
   "manifest_version": 3,
   "name": "Linkedin Recents",
-  "description": "Quickly access recently viewed Linkedin profiles",
+  "description": "Quickly access recently viewed LinkedIn profiles",
   "version": "1.0",
   "action": {
+    "default_popup": "popup.html",
     "default_icon": "hello_extensions.png"
   },
   "content_scripts": [
     {
       "js": ["scripts/content.js"],
-      "matches": [
-        "https://*.com/*"
-      ]
+      "matches": ["*://*.linkedin.com/*"]
     }
   ],
-  "background": {
-    "service_worker": "background.js"
-  },
+  "web_accessible_resources": [{
+    "matches": ["*://*.linkedin.com/*"],
+    "resources": ["scripts/*"]
+  }],
   "permissions": ["activeTab", "scripting", "storage"],
   "commands": {
     "_execute_action": {
@@ -25,5 +25,8 @@
         "mac": "Command+B"
       }
     }
+  },
+  "icons": {
+    "16": "hello_extensions.png"
   }
 }
