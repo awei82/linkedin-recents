@@ -3,16 +3,16 @@
 
   import { onMount } from "svelte";
   import ProfileList from './lib/ProfileList.svelte';
-  import { searchProfiles, getRecents } from '/src/storage.js'
+  import * as Storage from '/src/storage.js'
 
   let profiles = []
   let q = ''
 
   async function search() {
-    profiles = await searchProfiles(q.trim())
+    profiles = await Storage.search(q.trim())
   }
 
-  onMount(async() => profiles = await getRecents())
+  onMount(async() => profiles = await Storage.recent())
 </script>
 
 <main>
