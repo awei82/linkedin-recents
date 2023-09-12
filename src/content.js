@@ -1,5 +1,5 @@
 import { linkedin_profile_url, getProfileInfo } from '/src/linkedin_helpers.js'
-import { addProfile } from '/src/storage.js'
+import * as Storage from '/src/storage.js'
 
 async function saveProfile() {
   console.log('saveProfile')
@@ -9,7 +9,7 @@ async function saveProfile() {
 
   if (data === null) { return null }
 
-  addProfile(data)
+  Storage.insert(data)
 }
 
 // handle navigation events

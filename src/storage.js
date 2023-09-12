@@ -1,33 +1,31 @@
-export async function addProfile(data) {
+export async function insert(data) {
   let result = await chrome.storage.local.get('profiles')
   let profiles = result.profiles
 
   if (profiles === undefined) {
     profiles = [data]
   } else {
-    if (profiles.filter((p) => p.linkedin_id === data.linkedin_id).length > 0) {
-      profiles = profiles.map(p => p.linkedin_id === data.linkedin_id ? data : p);
-    } else {
-      profiles.push(data)
+    // Remove the old profile if found (it'll be replace with the new record at the front)
+    const idx = profiles.map(p => p.linkedin_id).indexOf(data.linkedin_id)
+    if (idx >= 0) {
+      profiles.splice(idx, 1)
     }
+
+    profiles.unshift(data)
   }
 
-  // TODO: order list by recency
-
-  chrome.storage.local.set({ profiles: profiles })
+  chrome.storage.local.set({ profiles: profiles.slice(0, 10000) })
 }
 
-export async function searchProfiles(q) {
+export async function search(q) {
   let result = await chrome.storage.local.get('profiles')
   let profiles = result.profiles
 
-  return profiles.filter((p) => p.search_string.includes(q.toLowerCase())).slice(-10).reverse()
+  return profiles.filter((p) => p.search_string.includes(q.toLowerCase())).slice(0, 10)
 }
 
 
-export async function getRecents() {
+export async function recent() {
   let result = await chrome.storage.local.get('profiles')
-  let profiles = result.profiles
-
-  return profiles.slice(-10).reverse();
+  return result.profiles.slice(0, 10)
 }
