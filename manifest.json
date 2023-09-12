@@ -4,18 +4,18 @@
   "description": "Quickly access recently viewed LinkedIn profiles",
   "version": "1.0",
   "action": {
-    "default_popup": "popup.html",
+    "default_popup": "src/popup/popup.html",
     "default_icon": "hello_extensions.png"
   },
   "content_scripts": [
     {
-      "js": ["scripts/content.js"],
+      "js": ["src/content.js"],
       "matches": ["*://*.linkedin.com/*"]
     }
   ],
   "web_accessible_resources": [{
     "matches": ["*://*.linkedin.com/*"],
-    "resources": ["scripts/*"]
+    "resources": ["src/*.js"]
   }],
   "permissions": ["activeTab", "scripting", "storage"],
   "commands": {

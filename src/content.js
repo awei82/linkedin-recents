@@ -1,11 +1,10 @@
-import { linkedin_profile_url, getProfileInfo } from '/scripts/linkedin_helpers.js'
-import { addProfile } from '/scripts/storage.js'
+import { linkedin_profile_url, getProfileInfo } from '/src/linkedin_helpers.js'
+import { addProfile } from '/src/storage.js'
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 async function saveProfile() {
-    console.log('saveProfile')
-
+  console.log('saveProfile')
     await sleep(2000)
     
     const data = getProfileInfo()
@@ -29,12 +28,11 @@ function navigationHandler() {
 }
 
 
-export function main() {
-  if (window.location.href.startsWith(linkedin_profile_url)) {
-    saveProfile();
-  }
 
-  // Observe network requests (when user navigates via link clicks)
-  let requestObserver = new PerformanceObserver((_) => { navigationHandler() })
-  requestObserver.observe({ type: 'resource' })
+if (window.location.href.startsWith(linkedin_profile_url)) {
+  saveProfile();
 }
+
+// Observe network requests (when user navigates via link clicks)
+let requestObserver = new PerformanceObserver((_) => { navigationHandler() })
+requestObserver.observe({ type: 'resource' })

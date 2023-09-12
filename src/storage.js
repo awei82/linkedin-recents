@@ -29,5 +29,5 @@ export async function getRecents() {
   let result = await chrome.storage.local.get('profiles')
   let profiles = result.profiles
 
-  return profiles.slice(0, 10);
+  return profiles.slice(-10).reverse();
 }
