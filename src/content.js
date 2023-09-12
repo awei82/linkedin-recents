@@ -1,5 +1,5 @@
-import { linkedin_profile_url, getProfileInfo } from 'src/linkedin_helpers.js'
-import { addProfile } from 'src/storage.js'
+import { linkedin_profile_url, getProfileInfo } from '/src/linkedin_helpers.js'
+import { addProfile } from '/src/storage.js'
 
 async function saveProfile() {
   console.log('saveProfile')
