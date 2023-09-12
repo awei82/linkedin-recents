@@ -21,7 +21,7 @@ export async function searchProfiles(q) {
   let result = await chrome.storage.local.get('profiles')
   let profiles = result.profiles
 
-  return profiles.filter((p) => p.search_string.includes(q.toLowerCase()))
+  return profiles.filter((p) => p.search_string.includes(q.toLowerCase())).slice(-10).reverse()
 }
 
 
