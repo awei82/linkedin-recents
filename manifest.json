@@ -10,13 +10,10 @@
   "content_scripts": [
     {
       "js": ["src/content.js"],
-      "matches": ["*://*.linkedin.com/*"]
+      "matches": ["*://*.linkedin.com/in/*"],
+      "run_at": "document_end"
     }
   ],
-  "web_accessible_resources": [{
-    "matches": ["*://*.linkedin.com/*"],
-    "resources": ["src/*.js"]
-  }],
   "permissions": ["activeTab", "scripting", "storage"],
   "commands": {
     "_execute_action": {
