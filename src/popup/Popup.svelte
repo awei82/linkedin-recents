@@ -9,7 +9,6 @@
   let q = ''
 
   async function search() {
-    if (q.trim().length === 0) return
     profiles = await searchProfiles(q.trim())
   }
 
@@ -17,7 +16,8 @@
 </script>
 
 <main>
-  <input type="text" placeholder="Search.." bind:value={q} on:input={search}>
+  <!-- svelte-ignore a11y-autofocus -->
+  <input type="text" placeholder="Search.." autofocus bind:value={q} on:input={search}>
 
   {#if q.trim().length == 0}
     <h2>Recent profiles</h2>
