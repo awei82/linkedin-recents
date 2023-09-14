@@ -3,6 +3,7 @@
 
   function updateTab(url) {
     chrome.tabs.update({url: url})
+    window.close();
   }
 </script>
 
