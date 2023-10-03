@@ -33,7 +33,7 @@
   </form>
 
   {#if q.trim().length > 0 && profiles.length == 0}
-    <p>No matches from recents. Hit 'Enter' to search on LinkedIn</p>
+    <p class="no-results">No matches from recents. Hit 'Enter' to search on LinkedIn</p>
   {:else}
     <h2>Recent</h2>
     <ul id="profile-list">
@@ -47,4 +47,7 @@
 </main>
 
 <style>
+  .no-results {
+    margin-top: 8px;
+  }
 </style>
