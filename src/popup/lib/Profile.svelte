@@ -15,3 +15,9 @@
     <p class="headline truncated" style="width:250px">{profile.headline}</p>
   </div>
 </a>
+
+<style>
+  img {
+    margin-right: 4px;
+  }
+</style>

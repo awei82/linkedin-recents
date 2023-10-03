@@ -31,8 +31,8 @@ function getUserInfo() {
     linkedin_id: linkedin_id,
     name: name,
     photo_url: photo_url,
-    degree: profileEl.querySelector('.dist-value')?.innerText,
-    headline: profileEl.querySelector('.pv-text-details__left-panel .text-body-medium').innerText,
+    degree: profileEl.querySelector('.dist-value')?.innerText || '',
+    headline: profileEl.querySelector('.pv-text-details__left-panel .text-body-medium')?.innerText || '',
     visited_at: Date.now(),
     search_string: `${name.toLowerCase()} ${linkedin_id}`,
     linkedin_url: location.href.split('/').slice(0,5).join('/')
@@ -54,7 +54,7 @@ function getCompanyInfo() {
     linkedin_id: linkedin_id,
     name: name,
     photo_url: profileEl.querySelector('.org-top-card-primary-content__logo-container img').src,
-    headline: profileEl.querySelector('.org-top-card-summary__tagline').innerText,
+    headline: profileEl.querySelector('.org-top-card-summary__tagline')?.innerText || '',
     visited_at: Date.now(),
     search_string: `${name.toLowerCase()} ${linkedin_id}`,
     linkedin_url: location.href.split('/').slice(0,5).join('/')
