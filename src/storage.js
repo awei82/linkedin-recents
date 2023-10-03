@@ -14,18 +14,22 @@ export async function insert(data) {
     profiles.unshift(data)
   }
 
-  chrome.storage.local.set({ profiles: profiles.slice(0, 10000) })
+  chrome.storage.local.set({ profiles: profiles.slice(0, 9999) })
 }
 
 export async function search(q) {
   let result = await chrome.storage.local.get('profiles')
   let profiles = result.profiles
 
-  return profiles.filter((p) => p.search_string.includes(q.toLowerCase())).slice(0, 10)
+  return profiles.filter(p => p.search_string.includes(q.toLowerCase())).slice(0, 10)
 }
 
 
 export async function recent() {
   let result = await chrome.storage.local.get('profiles')
   return result.profiles.slice(0, 10)
+}
+
+export async function clear() {
+  await chrome.storage.local.clear()
 }
