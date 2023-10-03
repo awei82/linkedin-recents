@@ -1,11 +1,11 @@
 export async function insert(data) {
-  let result = await chrome.storage.local.get('profiles')
+  const result = await chrome.storage.local.get('profiles')
   let profiles = result.profiles
 
   if (profiles === undefined) {
     profiles = [data]
   } else {
-    // Remove the old profile if found (it'll be replace with the new record at the front)
+    // Remove the old profile if found (it'll be replaced with the new record at the front)
     const idx = profiles.map(p => p.linkedin_id).indexOf(data.linkedin_id)
     if (idx >= 0) {
       profiles.splice(idx, 1)
@@ -18,16 +18,22 @@ export async function insert(data) {
 }
 
 export async function search(q) {
-  let result = await chrome.storage.local.get('profiles')
-  let profiles = result.profiles
+  const result = await chrome.storage.local.get('profiles')
 
-  return profiles.filter(p => p.search_string.includes(q.toLowerCase())).slice(0, 10)
+  return result.profiles.filter(p => p.search_string.includes(q.toLowerCase())).slice(0, 10)
 }
 
 
 export async function recent() {
-  let result = await chrome.storage.local.get('profiles')
+  const result = await chrome.storage.local.get('profiles')
   return result.profiles.slice(0, 10)
+}
+
+export async function remove(data) {
+  const result = await chrome.storage.local.get('profiles')
+  const profiles = result.profiles
+
+  chrome.storage.local.set({ profiles: profiles.filter(p => p !== data) })
 }
 
 export async function clear() {
