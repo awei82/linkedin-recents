@@ -1,4 +1,4 @@
-import { linkedin_profile_url, getProfileInfo } from '/src/linkedin_helpers.js'
+import { getProfileInfo } from '/src/linkedin_helpers.js'
 import * as Storage from '/src/storage.js'
 
 async function saveProfile() {
