@@ -9,6 +9,7 @@
 
 
 <a id={profile.linkedin_id} href={profile.linkedin_url} style="display: flex" on:click={updateTab}>
+  <!-- TODO: Show anonymous photo if missing -->
   <img style="width:32px;height:32px;" alt="" src={profile.photo_url}>
   <div>
     <h3 class="name">{profile.name}</h3>
@@ -19,5 +20,27 @@
 <style>
   img {
     margin-right: 4px;
+  }
+
+  h3,
+  p {
+    margin: 0;
+  }
+
+  a:link {
+    color: rgba(0, 0, 0, 0.9);
+    text-decoration:none;
+  }
+
+  a:hover {
+    color: #0a66c2;
+    text-decoration:underline;
+  }
+
+  .truncated {
+    display: block;
+    white-space: nowrap; /* forces text to single line */
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 </style>

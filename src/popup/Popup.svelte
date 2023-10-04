@@ -1,6 +1,4 @@
 <script>
-  import './popup.css'
-
   import { onMount } from "svelte";
   import Profile from './lib/Profile.svelte';
   import * as Storage from '../storage.js'
@@ -33,7 +31,7 @@
   </form>
 
   {#if q.trim().length > 0 && profiles.length == 0}
-    <p class="no-results">No matches from recents. Hit 'Enter' to search on LinkedIn</p>
+    <p>No matches from recents. Hit 'Enter' to search on LinkedIn</p>
   {:else}
     <h2>Recent</h2>
     <ul id="profile-list">
@@ -47,7 +45,23 @@
 </main>
 
 <style>
-  .no-results {
-    margin-top: 8px;
+  main {
+    width: 300px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-inline-start: 0;
+    margin: 1rem 0;
+  }
+
+  li {
+    padding: 0.25rem;
+  }
+  li:nth-child(odd) {
+    background: #80808030;
+  }
+  li:nth-child(even) {
+    background: #ffffff;
   }
 </style>
