@@ -4,8 +4,7 @@
   "description": "Quickly access recently viewed LinkedIn profiles",
   "version": "1.0",
   "action": {
-    "default_popup": "src/popup/popup.html",
-    "default_icon": "hello_extensions.png"
+    "default_popup": "src/popup/popup.html"
   },
   "content_scripts": [
     {
@@ -24,6 +23,9 @@
     }
   },
   "icons": {
-    "16": "hello_extensions.png"
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
   }
 }
