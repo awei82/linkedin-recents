@@ -49,10 +49,14 @@
     width: 300px;
   }
 
+  h2 {
+    margin: 0.25rem;
+  }
+
   ul {
     list-style-type: none;
     padding-inline-start: 0;
-    margin: 1rem 0;
+    margin: 0.25rem 0;
   }
 
   li {
