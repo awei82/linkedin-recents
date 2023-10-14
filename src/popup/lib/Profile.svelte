@@ -10,7 +10,7 @@
 </script>
 
 
-<a id={profile.linkedin_id} href={profile.linkedin_url} style="display: flex" on:click={updateTab}>
+<a id={profile.linkedin_id} href={profile.linkedin_url} on:click={updateTab}>
   {#if profile.photo_url.startsWith('https://')}
     <img style="width:32px;height:32px;" alt="" src={profile.photo_url}>
   {:else}
@@ -32,7 +32,8 @@
     margin: 0;
   }
 
-  a:link {
+  a {
+    display: flex;
     color: rgba(0, 0, 0, 0.9);
     text-decoration:none;
   }
