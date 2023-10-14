@@ -1,12 +1,12 @@
-import { linkedin_profile_url, linkedin_company_url, getProfileInfo } from '/src/linkedin_helpers.js'
-import * as Storage from '/src/storage.js'
+import { linkedin_profile_url, linkedin_company_url, getProfileInfo } from './linkedin_helpers.js'
+import * as Storage from './storage.js'
 
 async function saveProfile() {
   if (location.href.startsWith(linkedin_profile_url) || location.href.startsWith(linkedin_company_url)) {
-    console.log('saveProfile')
+    // console.log('saveProfile')
   
     const data = getProfileInfo()
-    console.log(data)
+    // console.log(data)
 
     if (data === null) return null
 
@@ -19,7 +19,7 @@ let previousUrl = location.href
 
 function navigationHandler() {
   if ((location.href !== previousUrl)) {
-    console.log(`navigated: ${location.href}`)
+    // console.log(`navigated: ${location.href}`)
     previousUrl = location.href
     saveProfile()
   }
