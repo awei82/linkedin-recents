@@ -13,7 +13,7 @@
       "run_at": "document_end"
     }
   ],
-  "permissions": ["activeTab", "scripting", "storage"],
+  "permissions": ["storage"],
   "commands": {
     "_execute_action": {
       "suggested_key": {
