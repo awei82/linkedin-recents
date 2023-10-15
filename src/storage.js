@@ -33,7 +33,7 @@ export async function remove(data) {
   const result = await chrome.storage.local.get('profiles')
   const profiles = result.profiles
 
-  chrome.storage.local.set({ profiles: profiles.filter(p => p !== data) })
+  chrome.storage.local.set({ profiles: profiles.filter(p => p.linkedin_id !== data.linkedin_id) })
 }
 
 export async function clear() {

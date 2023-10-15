@@ -16,11 +16,12 @@
   {:else}
     <img style="width:32px;height:32px;" alt="" src={linkedin_anonymous_photo}>
   {/if}
-  <div>
+  <div style="width: 230px;">
     <h3 class="name">{profile.name}</h3>
-    <p class="headline truncated" style="width:250px">{profile.headline}</p>
+    <p class="headline truncated">{profile.headline}</p>
   </div>
 </a>
+
 
 <style>
   img {
@@ -34,6 +35,7 @@
 
   a {
     display: flex;
+    width: 266px;
     color: rgba(0, 0, 0, 0.9);
     text-decoration:none;
   }
