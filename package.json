@@ -4,7 +4,8 @@
   "version": "1.0",
   "type": "module",
   "scripts": {
-    "build": "vite build"
+    "build": "vite build",
+    "zip": "vite build && cd dist && zip -r ../dist.zip ."
   },
   "dependencies": {
     "@crxjs/vite-plugin": "^2.0.0-beta.18",
