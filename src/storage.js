@@ -26,6 +26,9 @@ export async function search(q) {
 
 export async function recent() {
   const result = await chrome.storage.local.get('profiles')
+
+  if (result.profiles === undefined) return [];
+
   return result.profiles.slice(0, 10)
 }
 
