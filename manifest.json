@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "LinkedIn Recents",
-  "description": "Quickly access recently viewed LinkedIn profiles",
+  "description": "Quickly access your most-visited LinkedIn profiles",
   "version": "1.2",
   "action": {
     "default_popup": "src/popup/popup.html"
