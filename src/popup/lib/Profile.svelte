@@ -3,6 +3,8 @@
 
   export let profile
 
+  $: profile_photo_url = profile.photo_url.startsWith('https://') ? profile.photo_url :linkedin_anonymous_photo;
+
   function updateTab() {
     chrome.tabs.update({url: profile.linkedin_url})
     window.close();
@@ -11,13 +13,14 @@
 
 
 <a id={profile.linkedin_id} href={profile.linkedin_url} on:click={updateTab}>
-  {#if profile.photo_url.startsWith('https://')}
-    <img style="width:32px;height:32px;" alt="" src={profile.photo_url}>
-  {:else}
-    <img style="width:32px;height:32px;" alt="" src={linkedin_anonymous_photo}>
-  {/if}
-  <div style="width: 230px;">
-    <h3 class="name">{profile.name}</h3>
+  <img style="width:32px;height:32px; align-self: center; " alt="" src={profile_photo_url}>
+  <div style="width: 230px; align-self: center;">
+    <div style="display: flex;">
+      <h3>{profile.name}</h3>
+      {#if profile.degree}
+        <p style="align-self: center; color: #484848;">&nbsp;&#x2022; {profile.degree}</p>
+      {/if}
+    </div>
     <p class="headline truncated">{profile.headline}</p>
   </div>
 </a>

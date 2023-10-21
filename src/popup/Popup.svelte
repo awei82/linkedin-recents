@@ -81,7 +81,8 @@
     <a on:click={()=> navigate(extension_url)} href={extension_url}>Learn more</a>
   </p>
   <form method="dialog">
-    <button>OK</button>
+    <!-- svelte-ignore a11y-autofocus -->
+    <button autofocus>OK</button>
   </form>
 </dialog>
 
