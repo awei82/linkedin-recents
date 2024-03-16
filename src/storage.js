@@ -23,7 +23,9 @@ export async function search(q) {
   return result.profiles.filter(p => p.search_string.includes(q.toLowerCase())).slice(0, 10)
 }
 
-
+/**
+ * Returns the 10 most recently viewed profiles.
+ */
 export async function recent() {
   const result = await chrome.storage.local.get('profiles')
 

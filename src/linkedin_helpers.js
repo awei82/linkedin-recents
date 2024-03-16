@@ -29,9 +29,9 @@ function getUserInfo() {
     type: 'in',
     linkedin_id: linkedin_id,
     name: name,
-    photo_url: profileEl.querySelector('.pv-top-card-profile-picture img').src,
+    photo_url: profileEl.querySelector('.pv-top-card--photo img').src,
     degree: profileEl.querySelector('.dist-value')?.innerText || '',
-    headline: profileEl.querySelector('.pv-text-details__left-panel .text-body-medium')?.innerText || '',
+    headline: profileEl.querySelector('div.text-body-medium.break-words')?.innerText || '',
     visited_at: Date.now(),
     search_string: `${name.toLowerCase()} ${linkedin_id}`,
     linkedin_url: location.href.split('/').slice(0,5).join('/')

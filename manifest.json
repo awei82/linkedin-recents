@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "LinkedIn Recents",
-  "description": "Quickly access your most-visited LinkedIn profiles",
-  "version": "1.2",
+  "description": "Quickly access your most-visited LinkedIn profiles. Skip the search bar and search right in the extension!",
+  "version": "1.3",
   "action": {
     "default_popup": "src/popup/popup.html"
   },
