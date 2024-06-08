@@ -18,18 +18,20 @@ export function getProfileInfo() {
 function getUserInfo() {
   const profileEl = document.querySelector('[data-member-id]')
 
-  if (profileEl === null) {
+  if (!profileEl) {
     return null
   }
 
-  const name = document.querySelector('[data-member-id] h1').innerText
+  // console.log(profileEl)
+
+  const name = profileEl.querySelector('h1').innerText
   const linkedin_id = getLinkedinId(location.href)
 
   return {
     type: 'in',
     linkedin_id: linkedin_id,
     name: name,
-    photo_url: profileEl.querySelector('.pv-top-card--photo img').src,
+    photo_url: profileEl.querySelector('.pv-top-card-profile-picture__image--show')?.src,
     degree: profileEl.querySelector('.dist-value')?.innerText || '',
     headline: profileEl.querySelector('div.text-body-medium.break-words')?.innerText || '',
     visited_at: Date.now(),
@@ -41,18 +43,18 @@ function getUserInfo() {
 function getCompanyInfo() {
   const profileEl = document.querySelector('div.org-top-card__primary-content')
 
-  if (profileEl === null) {
+  if (!profileEl) {
     return null
   }
 
-  const name = profileEl.querySelector('.org-top-card-summary__title').title
+  const name = profileEl.querySelector('.org-top-card-summary__title')?.title
   const linkedin_id = getLinkedinId(location.href)
 
   return {
     type: 'company',
     linkedin_id: linkedin_id,
     name: name,
-    photo_url: profileEl.querySelector('.org-top-card-primary-content__logo-container img').src,
+    photo_url: profileEl.querySelector('.org-top-card-primary-content__logo-container img')?.src,
     headline: profileEl.querySelector('.org-top-card-summary__tagline')?.innerText || '',
     visited_at: Date.now(),
     search_string: `${name.toLowerCase()} ${linkedin_id}`,

@@ -1,7 +1,7 @@
 {
   "name": "linkedin-recents",
   "private": true,
-  "version": "1.2",
+  "version": "1.4",
   "type": "module",
   "scripts": {
     "build": "vite build",

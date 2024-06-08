@@ -3,10 +3,10 @@
 
   export let profile
 
-  $: profile_photo_url = profile.photo_url.startsWith('https://') ? profile.photo_url :linkedin_anonymous_photo;
+  $: profile_photo_url = profile.photo_url?.startsWith('https://') ? profile.photo_url :linkedin_anonymous_photo;
 
   function updateTab() {
-    chrome.tabs.update({url: profile.linkedin_url})
+    chrome.tabs.create({url: profile.linkedin_url})
     window.close();
   }
 </script>

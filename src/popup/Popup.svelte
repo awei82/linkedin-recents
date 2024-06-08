@@ -23,7 +23,7 @@
   }
 
   function navigate(url) {
-    chrome.tabs.update({url: url})
+    chrome.tabs.create({url: url})
     window.close()
   }
 
