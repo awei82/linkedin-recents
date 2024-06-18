@@ -1,7 +1,7 @@
 {
-  "name": "linkedin-recents",
+  "name": "linkedin-searchbar",
   "private": true,
-  "version": "1.4",
+  "version": "1.5",
   "type": "module",
   "scripts": {
     "build": "vite build",
