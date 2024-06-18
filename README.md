@@ -1,6 +1,8 @@
 # [LinkedIn Recents](https://chrome.google.com/webstore/detail/linkedin-recents/bcfkipkjopehjmgikgmnjamdhkhgkfec)
 A simple Chrome extension for quickly accessing your most-visited LinkedIn connections.
 
+![lr](https://github.com/awei82/linkedin-recents/assets/1923128/b65093da-e626-4870-93d4-46f4e5b692be)
+
 ## Quickstart
 ```
 npm install
