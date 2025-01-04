@@ -23,6 +23,7 @@ function getUserInfo() {
   }
 
   // console.log(profileEl)
+  // console.log(profileEl.querySelector('img')?.src)
 
   const name = profileEl.querySelector('h1').innerText
   const linkedin_id = getLinkedinId(location.href)
@@ -31,7 +32,7 @@ function getUserInfo() {
     type: 'in',
     linkedin_id: linkedin_id,
     name: name,
-    photo_url: profileEl.querySelector('.pv-top-card-profile-picture__image--show')?.src,
+    photo_url: profileEl.querySelector('img')?.src,
     degree: profileEl.querySelector('.dist-value')?.innerText || '',
     headline: profileEl.querySelector('div.text-body-medium.break-words')?.innerText || '',
     visited_at: Date.now(),

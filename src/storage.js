@@ -20,6 +20,8 @@ export async function insert(data) {
 export async function search(q) {
   const result = await chrome.storage.local.get('profiles')
 
+  if (result.profiles === undefined) return;
+
   return result.profiles.filter(p => p.search_string.includes(q.toLowerCase())).slice(0, 10)
 }
 
@@ -37,6 +39,8 @@ export async function recent() {
 export async function remove(data) {
   const result = await chrome.storage.local.get('profiles')
   const profiles = result.profiles
+
+  if (result.profiles === undefined) return;
 
   chrome.storage.local.set({ profiles: profiles.filter(p => p.linkedin_id !== data.linkedin_id) })
 }

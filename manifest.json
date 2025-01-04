@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "LinkedIn Searchbar",
   "description": "Quickly access your most-visited LinkedIn profiles. Skip LinkedIn's slow search bar and search right in the extension!",
-  "version": "1.5",
+  "version": "1.6",
   "action": {
     "default_popup": "src/popup/popup.html"
   },

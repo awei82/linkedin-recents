@@ -1,4 +1,4 @@
 #!/bin/bash
-rm dist.zip
+rm -f -- dist.zip
 cd dist
 zip -r ../dist.zip .
