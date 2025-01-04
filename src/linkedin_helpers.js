@@ -23,7 +23,9 @@ function getUserInfo() {
   }
 
   // console.log(profileEl)
-  // console.log(profileEl.querySelector('img')?.src)
+
+  const photo_url = getPhotoUrl(profileEl) //profileEl.querySelector('.pv-top-card-profile-picture__image--show')?.src
+  // console.log(photo_url)
 
   const name = profileEl.querySelector('h1').innerText
   const linkedin_id = getLinkedinId(location.href)
@@ -32,12 +34,25 @@ function getUserInfo() {
     type: 'in',
     linkedin_id: linkedin_id,
     name: name,
-    photo_url: profileEl.querySelector('img')?.src,
+    photo_url: photo_url,
     degree: profileEl.querySelector('.dist-value')?.innerText || '',
     headline: profileEl.querySelector('div.text-body-medium.break-words')?.innerText || '',
     visited_at: Date.now(),
     search_string: `${name.toLowerCase()} ${linkedin_id}`,
     linkedin_url: location.href.split('/').slice(0,5).join('/')
+  }
+}
+
+function getPhotoUrl(profileEl) {
+  const images = profileEl.querySelectorAll('img')
+  // console.log(images.length)
+
+  if (images.length == 1) {
+    return images[0]?.src
+  } else if (images.length >= 2) {
+    return images[1]?.src
+  } else {
+    return undefined
   }
 }
 

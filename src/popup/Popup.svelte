@@ -9,7 +9,7 @@
   const extension_url = "https://chrome.google.com/webstore/detail/linkedin-recents/bcfkipkjopehjmgikgmnjamdhkhgkfec"
 
   async function search() {
-    profiles = await Storage.search(q.trim())
+    profiles = (await Storage.search(q.trim())) || []
   }
 
   // Select first profile in list
