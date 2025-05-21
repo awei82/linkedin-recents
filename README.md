@@ -1,4 +1,4 @@
-# [LinkedIn Searchbar](https://chrome.google.com/webstore/detail/linkedin-recents/bcfkipkjopehjmgikgmnjamdhkhgkfec)
+# [LinkedIn Searchbar](https://chromewebstore.google.com/detail/linkedin-searchbar/cdpcbmkmbimiadfdeckebnaendhadjhm)
 A simple Chrome extension for quickly accessing your most-visited LinkedIn connections.
 
 ![lr](https://github.com/awei82/linkedin-recents/assets/1923128/b65093da-e626-4870-93d4-46f4e5b692be)
