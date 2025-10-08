@@ -3,8 +3,8 @@
   import Profile from './lib/Profile.svelte';
   import * as Storage from '../storage.js'
 
-  let profiles = []
-  let q = ''
+  let profiles = $state([])
+  let q = $state('')
 
   const extension_url = "https://chromewebstore.google.com/detail/linkedin-searchbar/cdpcbmkmbimiadfdeckebnaendhadjhm"
 
@@ -27,7 +27,7 @@
     window.close()
   }
 
-  let dialogEl
+  let dialogEl = $state()
 
   function openDialog() {
     dialogEl.showModal()
@@ -44,7 +44,7 @@
 
 <main>
   <div style="display:flex; justify-content: space-between;">
-    <!-- svelte-ignore a11y-autofocus -->
+    <!-- svelte-ignore a11y_autofocus -->
     <form onsubmit={(e) => { e.preventDefault(); submit(); }}>
       <input type="text" placeholder="Search..." autofocus bind:value={q} oninput={search}>
     </form>
@@ -58,9 +58,12 @@
   </div>
 
   {#if q.trim().length > 0 && profiles.length == 0}
-    <p>No matches from recents. Hit 'Enter' to search on LinkedIn</p>
+    <p>No matches from recents. Press 'Enter' to search on LinkedIn</p>
   {:else}
     <h2>Recent</h2>
+    {#if profiles.length == 0}
+      <p>No recent profiles saved. View some profiles on LinkedIn to get started!</p>
+    {/if}
     <ul id="profile-list">
       {#each profiles as profile}
         <li>
@@ -81,7 +84,7 @@
     <a onclick={()=> navigate(extension_url)} href={extension_url}>Learn more</a>
   </p>
   <form method="dialog">
-    <!-- svelte-ignore a11y-autofocus -->
+    <!-- svelte-ignore a11y_autofocus -->
     <button autofocus>OK</button>
   </form>
 </dialog>
