@@ -1,9 +1,9 @@
 <script>
   import linkedin_anonymous_photo from '../assets/linkedin_anonymous_photo.png'
 
-  export let profile
+  let { profile } = $props();
 
-  $: profile_photo_url = profile.photo_url?.startsWith('https://') ? profile.photo_url :linkedin_anonymous_photo;
+  let profile_photo_url = profile.photo_url?.startsWith('https://') ? profile.photo_url : linkedin_anonymous_photo
 
   function updateTab() {
     chrome.tabs.create({url: profile.linkedin_url})
@@ -12,7 +12,7 @@
 </script>
 
 
-<a id={profile.linkedin_id} href={profile.linkedin_url} on:click={updateTab}>
+<a id={profile.linkedin_id} href={profile.linkedin_url} onclick={updateTab}>
   <img style="width:32px;height:32px; align-self: center; " alt="" src={profile_photo_url}>
   <div style="width: 230px; align-self: center;">
     <div style="display: flex;">
