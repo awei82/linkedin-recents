@@ -1,7 +1,7 @@
 {
   "name": "linkedin-searchbar",
   "private": true,
-  "version": "1.6",
+  "version": "1.7",
   "type": "module",
   "scripts": {
     "build": "vite build",
