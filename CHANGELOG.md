@@ -1,3 +1,5 @@
+# 1.8
+- Improve selectors
 # 1.7
 - Open LinkedIn homepage on empty search
 # 1.6

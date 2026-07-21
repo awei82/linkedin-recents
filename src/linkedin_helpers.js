@@ -16,9 +16,12 @@ export function getProfileInfo() {
 }
 
 function getUserInfo() {
-  const profileEl = document.querySelector('[data-member-id]')
+  // console.log('getUserInfo')
+  const profileEl = document.querySelector('section[componentKey^="com.linkedin.sdui.profile.card"]')
+
 
   if (!profileEl) {
+    console.log('profile element not found')
     return null
   }
 
@@ -27,20 +30,21 @@ function getUserInfo() {
   const photo_url = getPhotoUrl(profileEl) //profileEl.querySelector('.pv-top-card-profile-picture__image--show')?.src
   // console.log(photo_url)
 
-  const name = profileEl.querySelector('h1').innerText
+  const name = profileEl.querySelector('h2').innerText
   const linkedin_id = getLinkedinId(location.href)
-
-  return {
+  const data = {
     type: 'in',
     linkedin_id: linkedin_id,
     name: name,
     photo_url: photo_url,
     degree: profileEl.querySelector('.dist-value')?.innerText || '',
-    headline: profileEl.querySelector('div.text-body-medium.break-words')?.innerText || '',
+    headline: profileEl.querySelector('div > div:nth-child(2) > div > div > div > p')?.innerText || '',
     visited_at: Date.now(),
     search_string: `${name.toLowerCase()} ${linkedin_id}`,
     linkedin_url: location.href.split('/').slice(0,5).join('/')
   }
+  // console.log(data)
+  return data
 }
 
 function getPhotoUrl(profileEl) {

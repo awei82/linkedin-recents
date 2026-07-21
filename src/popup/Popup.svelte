@@ -61,6 +61,8 @@
 
   {#if q.trim().length > 0 && profiles.length == 0}
     <p>No matches from recents. Hit 'Enter' to search on LinkedIn</p>
+  {:else if profiles.length == 0}
+    <p>No recents yet. Hit 'Enter' to search on LinkedIn</p>
   {:else}
     <h2>Recent</h2>
     <ul id="profile-list">
