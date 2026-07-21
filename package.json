@@ -1,17 +1,16 @@
 {
   "name": "linkedin-searchbar",
   "private": true,
-  "version": "1.6",
+  "version": "1.8",
   "type": "module",
   "scripts": {
+    "dev": "vite",
     "build": "vite build",
     "zip": "vite build && cd dist && zip -r ../dist.zip ."
   },
-  "dependencies": {
-    "@crxjs/vite-plugin": "^2.2.0",
-    "@sveltejs/vite-plugin-svelte": "^6.2.1",
-    "@types/chrome": "^0.1.22",
-    "svelte": "^5.39.11",
-    "vite": "^7.1.9"
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.2.0",
+    "@crxjs/vite-plugin": "^2.7.1",
+    "@types/chrome": "^0.2.2"
   }
 }

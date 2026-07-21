@@ -15,7 +15,9 @@
   // Select first profile in list
   // If no matches found, open linkedin search in a new tab
   function submit() {
-    if (profiles.length === 0 || q.trim().length === 0) {
+    if (q.trim().length === 0) {
+      navigate(`https://www.linkedin.com`)
+    } else if (profiles.length === 0) {
       navigate(`https://www.linkedin.com/search/results/all/?keywords=${q.trim()}`)
     } else {
       navigate(profiles[0].linkedin_url)
@@ -59,6 +61,8 @@
 
   {#if q.trim().length > 0 && profiles.length == 0}
     <p>No matches from recents. Press 'Enter' to search on LinkedIn</p>
+  {:else if profiles.length == 0}
+    <p>No recents yet. Press 'Enter' to search on LinkedIn</p>
   {:else}
     <h2>Recent</h2>
     {#if profiles.length == 0}

@@ -6,7 +6,8 @@ A simple Chrome extension for quickly accessing your most-visited LinkedIn conne
 ## Quickstart
 ```
 npm install
-npm run build
+npm run dev     # start dev server for hot reloading
+npm run zip     # builds + zips the extension for distribution
 ```  
 
 [Load the extension](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked) from the `dist` directory
