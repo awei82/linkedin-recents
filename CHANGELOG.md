@@ -1,3 +1,6 @@
+# 1.9
+- Update selectors
+- Update client-side nav handling - include wait + timeout for section to render=
 # 1.8
 - Improve selectors
 # 1.7
