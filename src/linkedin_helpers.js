@@ -17,7 +17,7 @@ export function getProfileInfo() {
 
 function getUserInfo() {
   // console.log('getUserInfo')
-  const profileEl = document.querySelector('section[componentKey^="com.linkedin.sdui.profile.card"]')
+  const profileEl = document.querySelector('div[componentKey^="com.linkedin.sdui.profile.card"]')
 
 
   if (!profileEl) {

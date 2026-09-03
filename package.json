@@ -9,8 +9,10 @@
     "zip": "vite build && cd dist && zip -r ../dist.zip ."
   },
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "^7.2.0",
-    "@crxjs/vite-plugin": "^2.7.1",
+    "@crxjs/vite-plugin": "^2.4.0",
+    "@sveltejs/vite-plugin-svelte": "^7.0.0",
+    "svelte": "^5.53.12",
+    "vite": "^8.0.0",
     "@types/chrome": "^0.2.2"
   }
 }
