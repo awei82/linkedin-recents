@@ -4,7 +4,14 @@ export const linkedin_company_url = 'https://www.linkedin.com/company/';
 // Grabs the linkedin id from a profile url
 // https://www.linkedin.com/in/someguy -> someguy
 function getLinkedinId(url) {
-  return url.split('/')[4]
+  return new URL(url).pathname.split('/')[2]
+}
+
+function getLinkedinUrl(url) {
+  const parsedUrl = new URL(url)
+  const [, type, linkedinId] = parsedUrl.pathname.split('/')
+
+  return `${parsedUrl.origin}/${type}/${linkedinId}`
 }
 
 export function getProfileInfo() {
@@ -41,7 +48,7 @@ function getUserInfo() {
     headline: profileEl.querySelector('div > div:nth-child(2) > div > div > div > p')?.innerText || '',
     visited_at: Date.now(),
     search_string: `${name.toLowerCase()} ${linkedin_id}`,
-    linkedin_url: location.href.split('/').slice(0,5).join('/')
+    linkedin_url: getLinkedinUrl(location.href)
   }
   // console.log(data)
   return data
@@ -78,6 +85,6 @@ function getCompanyInfo() {
     headline: profileEl.querySelector('.org-top-card-summary__tagline')?.innerText || '',
     visited_at: Date.now(),
     search_string: `${name.toLowerCase()} ${linkedin_id}`,
-    linkedin_url: location.href.split('/').slice(0,5).join('/')
+    linkedin_url: getLinkedinUrl(location.href)
   }
 }
