@@ -7,6 +7,7 @@
   let q = $state('')
 
   const extension_url = "https://chromewebstore.google.com/detail/linkedin-searchbar/cdpcbmkmbimiadfdeckebnaendhadjhm"
+  const extension_version = chrome.runtime.getManifest().version
 
   async function search() {
     profiles = (await Storage.search(q.trim())) || []
@@ -83,6 +84,7 @@
 
 <dialog bind:this={dialogEl}>
   <h3>Linkedin Recents</h3>
+  <p>Version {extension_version}</p>
   <p>
     Use the <b>Ctrl+Period</b> (<b>Cmd+Period</b> on macOS) shortcut to access the extension.
     <a onclick={()=> navigate(extension_url)} href={extension_url}>Learn more</a>
@@ -97,6 +99,7 @@
 <style>
   main {
     width: 300px;
+    min-height: 200px;
   }
 
   h2 {

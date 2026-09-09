@@ -14,4 +14,4 @@ npm run zip     # builds + zips the extension for distribution
 
 The extension is built with Svelte and uses the [CRXJS Vite plugin](https://crxjs.dev/vite-plugin) to build the exension from source.
 
-Do not run the Vite dev server - CRXJS will force page reloads with every save, and if you have multiple LinkedIn pages open during development, LinkedIn will flag your account for bot activity.
+WARNING: be carful when running the Vite dev server - CRXJS will force page reloads with every save, and if you have multiple LinkedIn pages open during development, LinkedIn will flag your account for bot activity.
